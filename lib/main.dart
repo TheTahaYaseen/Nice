@@ -35,6 +35,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var appState = context.watch<NiceAppState>();
+
     return const Placeholder();
   }
 }
