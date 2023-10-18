@@ -51,46 +51,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var appState = context.watch<NiceAppState>();
-    var randomWordPair = appState.currentRandomWord;
-
-    IconData icon;
-    if (appState.favourites.contains(randomWordPair)) {
-      icon = Icons.favorite;
-    } else {
-      icon = Icons.favorite_border;
-    }
-
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            NameCard(randomWordPair: randomWordPair),
-            SizedBox(
-              height: 10,
-            ),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                ElevatedButton.icon(
-                  onPressed: () {
-                    appState.toggleFavouritism();
-                  },
-                  label: Text("Like"),
-                  icon: Icon(icon),
-                ),
-                ElevatedButton(
-                    onPressed: () {
-                      appState.getNextRandomWord();
-                    },
-                    child: Text("Next")),
-              ],
-            )
-          ],
-        ),
-      ),
-    );
+    return Scaffold();
   }
 }
 
@@ -113,7 +74,7 @@ class NameCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(20),
         child: Text(
-          randomWordPair.asCamelCase,
+          randomWordPair.asPascalCase,
           style: style,
           semanticsLabel: "${randomWordPair.first} ${randomWordPair.second}",
         ),
