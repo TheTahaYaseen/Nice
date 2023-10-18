@@ -27,3 +27,12 @@ class NiceApp extends StatelessWidget {
 class NiceAppState extends ChangeNotifier {
   var current = WordPair.random();
 }
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
