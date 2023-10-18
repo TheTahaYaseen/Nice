@@ -70,7 +70,12 @@ class HomePage extends StatelessWidget {
               child: Container(
             color: Theme.of(context).colorScheme.primaryContainer,
             child: NameGeneratorPage(),
-          ))
+          )),
+          Expanded(
+              child: Container(
+            color: Theme.of(context).colorScheme.primaryContainer,
+            child: FavouritesPage(),
+          )),
         ],
       ),
     );
@@ -153,5 +158,15 @@ class NameCard extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class FavouritesPage extends StatelessWidget {
+  FavouritesPage({super.key});
+  var appState = NiceAppState().watch<NiceAppState>();
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
   }
 }
