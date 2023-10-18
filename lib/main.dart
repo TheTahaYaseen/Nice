@@ -71,11 +71,6 @@ class HomePage extends StatelessWidget {
             color: Theme.of(context).colorScheme.primaryContainer,
             child: NameGeneratorPage(),
           )),
-          Expanded(
-              child: Container(
-            color: Theme.of(context).colorScheme.primaryContainer,
-            child: FavouritesPage(),
-          )),
         ],
       ),
     );
@@ -163,10 +158,10 @@ class NameCard extends StatelessWidget {
 
 class FavouritesPage extends StatelessWidget {
   FavouritesPage({super.key});
-  var appState = NiceAppState().watch<NiceAppState>();
 
   @override
   Widget build(BuildContext context) {
+    var appState = context.watch<NiceAppState>();
     return const Placeholder();
   }
 }
