@@ -47,7 +47,7 @@ class HomePage extends StatelessWidget {
       body: Column(
         children: [
           Text("A Random Word Idea -"),
-          NameCard(randomWordPair),
+          NameCard(randomWordPair: randomWordPair),
           ElevatedButton(
               onPressed: () {
                 appState.getNextRandomWord();
@@ -57,6 +57,18 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
+}
 
-  Text NameCard(WordPair randomWordPair) => Text(randomWordPair.asCamelCase);
+class NameCard extends StatelessWidget {
+  const NameCard({
+    super.key,
+    required this.randomWordPair,
+  });
+
+  final WordPair randomWordPair;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(randomWordPair.asCamelCase);
+  }
 }
