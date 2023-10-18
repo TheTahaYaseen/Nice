@@ -54,6 +54,13 @@ class HomePage extends StatelessWidget {
     var appState = context.watch<NiceAppState>();
     var randomWordPair = appState.currentRandomWord;
 
+    IconData icon;
+    if (appState.favourites.contains(randomWordPair)) {
+      icon = Icons.favorite;
+    } else {
+      icon = Icons.favorite_border;
+    }
+
     return Scaffold(
       body: Center(
         child: Column(
@@ -63,11 +70,15 @@ class HomePage extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            ElevatedButton(
-                onPressed: () {
-                  appState.getNextRandomWord();
-                },
-                child: Text("Next"))
+            Row(
+              children: [
+                ElevatedButton(
+                    onPressed: () {
+                      appState.getNextRandomWord();
+                    },
+                    child: Text("Next")),
+              ],
+            )
           ],
         ),
       ),
