@@ -19,7 +19,7 @@ class NiceApp extends StatelessWidget {
         title: "Nice",
         theme: ThemeData(
             useMaterial3: true,
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent)),
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.cyan)),
         home: HomePage(),
       ),
     );
@@ -31,6 +31,17 @@ class NiceAppState extends ChangeNotifier {
 
   void getNextRandomWord() {
     currentRandomWord = WordPair.random();
+    notifyListeners();
+  }
+
+  List<WordPair> favourites = [];
+
+  void toggleFavouritism() {
+    if (favourites.contains(currentRandomWord)) {
+      favourites.remove(currentRandomWord);
+    } else {
+      favourites.add(currentRandomWord);
+    }
     notifyListeners();
   }
 }
