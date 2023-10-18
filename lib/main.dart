@@ -41,12 +41,13 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var appState = context.watch<NiceAppState>();
+    var randomWordPair = appState.currentRandomWord;
 
     return Scaffold(
       body: Column(
         children: [
           Text("A Random Word Idea -"),
-          Text(appState.currentRandomWord.asLowerCase),
+          Text(randomWordPair.asCamelCase),
           ElevatedButton(
               onPressed: () {
                 appState.getNextRandomWord();
