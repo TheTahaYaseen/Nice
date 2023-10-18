@@ -12,7 +12,7 @@ class NiceApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: () => NiceAppState(),
+      create: (context) => NiceAppState(),
       child: MaterialApp(
         title: "Nice",
         theme: ThemeData(
