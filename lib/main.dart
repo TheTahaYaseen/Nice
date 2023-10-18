@@ -51,7 +51,19 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Row(
+        children: [
+          SafeArea(
+              child: NavigationRail(
+            destinations: [],
+            selectedIndex: 0,
+            extended: false,
+            onDestinationSelected: (value) {},
+          ))
+        ],
+      ),
+    );
   }
 }
 
