@@ -111,6 +111,9 @@ class NameGeneratorPage extends StatelessWidget {
                   label: Text("Like"),
                   icon: Icon(icon),
                 ),
+                SizedBox(
+                  width: 10,
+                ),
                 ElevatedButton(
                     onPressed: () {
                       appState.getNextRandomWord();
