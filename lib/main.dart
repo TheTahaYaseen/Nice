@@ -71,6 +71,7 @@ class HomePage extends StatelessWidget {
               height: 10,
             ),
             Row(
+              mainAxisSize: MainAxisSize.min,
               children: [
                 ElevatedButton.icon(
                   onPressed: () {
