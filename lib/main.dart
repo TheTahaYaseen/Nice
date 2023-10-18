@@ -41,7 +41,8 @@ class HomePage extends StatelessWidget {
       body: Column(
         children: [
           Text("A Random Word Idea -"),
-          Text(appState.currentRandomWord.asLowerCase)
+          Text(appState.currentRandomWord.asLowerCase),
+          ElevatedButton(onPressed: () {}, child: Text("Next"))
         ],
       ),
     );
