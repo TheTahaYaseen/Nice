@@ -80,6 +80,7 @@ class NameCard extends StatelessWidget {
         child: Text(
           randomWordPair.asCamelCase,
           style: style,
+          semanticsLabel: "${randomWordPair.first} ${randomWordPair.second}",
         ),
       ),
     );
