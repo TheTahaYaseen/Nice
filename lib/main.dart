@@ -69,6 +69,11 @@ class NameCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(randomWordPair.asCamelCase);
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text(randomWordPair.asCamelCase),
+      ),
+    );
   }
 }
