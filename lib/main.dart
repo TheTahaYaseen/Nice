@@ -28,6 +28,11 @@ class NiceApp extends StatelessWidget {
 
 class NiceAppState extends ChangeNotifier {
   var currentRandomWord = WordPair.random();
+
+  void getNextRandomWord() {
+    currentRandomWord = WordPair.random();
+    notifyListeners();
+  }
 }
 
 class HomePage extends StatelessWidget {
@@ -42,7 +47,11 @@ class HomePage extends StatelessWidget {
         children: [
           Text("A Random Word Idea -"),
           Text(appState.currentRandomWord.asLowerCase),
-          ElevatedButton(onPressed: () {}, child: Text("Next"))
+          ElevatedButton(
+              onPressed: () {
+                appState.getNextRandomWord();
+              },
+              child: Text("Next"))
         ],
       ),
     );
