@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(NiceApp());
@@ -9,6 +10,8 @@ class NiceApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return ChangeNotifierProvider(
+      create: () => NiceAppState(),
+    );
   }
 }
