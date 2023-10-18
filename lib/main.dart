@@ -1,3 +1,4 @@
+import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -21,4 +22,8 @@ class NiceApp extends StatelessWidget {
       ),
     );
   }
+}
+
+class NiceAppState extends ChangeNotifier {
+  var current = WordPair.random();
 }
