@@ -44,16 +44,21 @@ class HomePage extends StatelessWidget {
     var randomWordPair = appState.currentRandomWord;
 
     return Scaffold(
-      body: Column(
-        children: [
-          Text("A Random Word Idea -"),
-          NameCard(randomWordPair: randomWordPair),
-          ElevatedButton(
-              onPressed: () {
-                appState.getNextRandomWord();
-              },
-              child: Text("Next"))
-        ],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            NameCard(randomWordPair: randomWordPair),
+            SizedBox(
+              height: 10,
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  appState.getNextRandomWord();
+                },
+                child: Text("Next"))
+          ],
+        ),
       ),
     );
   }
