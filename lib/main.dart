@@ -65,6 +65,11 @@ class HomePage extends StatelessWidget {
             selectedIndex: 0,
             extended: false,
             onDestinationSelected: (value) {},
+          )),
+          Expanded(
+              child: Container(
+            color: Theme.of(context).colorScheme.primaryContainer,
+            child: NameGeneratorPage(),
           ))
         ],
       ),
