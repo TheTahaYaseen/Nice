@@ -72,6 +72,13 @@ class HomePage extends StatelessWidget {
             ),
             Row(
               children: [
+                ElevatedButton.icon(
+                  onPressed: () {
+                    appState.toggleFavouritism();
+                  },
+                  label: Text("Like"),
+                  icon: Icon(icon),
+                ),
                 ElevatedButton(
                     onPressed: () {
                       appState.getNextRandomWord();
