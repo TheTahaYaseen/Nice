@@ -55,6 +55,54 @@ class HomePage extends StatelessWidget {
   }
 }
 
+class NameGeneratorPage extends StatelessWidget {
+  const NameGeneratorPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    var appState = context.watch<NiceAppState>();
+    var randomWordPair = appState.currentRandomWord;
+
+    IconData icon;
+    if (appState.favourites.contains(randomWordPair)) {
+      icon = Icons.favorite;
+    } else {
+      icon = Icons.favorite_border;
+    }
+
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            NameCard(randomWordPair: randomWordPair),
+            SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ElevatedButton.icon(
+                  onPressed: () {
+                    appState.toggleFavouritism();
+                  },
+                  label: Text("Like"),
+                  icon: Icon(icon),
+                ),
+                ElevatedButton(
+                    onPressed: () {
+                      appState.getNextRandomWord();
+                    },
+                    child: Text("Next")),
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class NameCard extends StatelessWidget {
   const NameCard({
     super.key,
