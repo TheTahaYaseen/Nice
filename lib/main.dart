@@ -37,6 +37,13 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     var appState = context.watch<NiceAppState>();
 
-    return const Placeholder();
+    return Scaffold(
+      body: Column(
+        children: [
+          Text("A Random Word Idea -"),
+          Text(appState.currentRandomWord.asLowerCase)
+        ],
+      ),
+    );
   }
 }
