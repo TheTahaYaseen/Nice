@@ -177,7 +177,25 @@ class FavouritesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var appState = context.watch<NiceAppState>();
     var favorites = appState.favourites;
+    final style = Theme.of(context)
+        .textTheme
+        .displaySmall!
+        .copyWith(color: Theme.of(context).colorScheme.primary);
 
-    return Column();
+    return Scaffold(
+      body: ListView.builder(
+        itemCount: favorites.length,
+        itemBuilder: (context, index) {
+          return Card(
+            color: Theme.of(context).colorScheme.secondary,
+            child: Card(
+                child: Text(
+              favorites[index].asPascalCase,
+              style: style,
+            )),
+          );
+        },
+      ),
+    );
   }
 }
