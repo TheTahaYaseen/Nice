@@ -53,6 +53,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int navigationIndex = 0;
+  List<Widget> pages = [NameGeneratorPage(), FavouritesPage()];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,7 +83,7 @@ class _HomePageState extends State<HomePage> {
           Expanded(
               child: Container(
             color: Theme.of(context).colorScheme.primaryContainer,
-            child: NameGeneratorPage(),
+            child: pages[navigationIndex],
           )),
         ],
       ),
