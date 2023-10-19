@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -54,6 +52,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int navigationIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,9 +66,17 @@ class _HomePageState extends State<HomePage> {
               NavigationRailDestination(
                   icon: Icon(Icons.favorite), label: Text("Favorites"))
             ],
-            selectedIndex: 0,
+            selectedIndex: navigationIndex,
             extended: false,
-            onDestinationSelected: (value) {},
+            onDestinationSelected: (value) {
+              setState(() {
+                if (navigationIndex == 0) {
+                  navigationIndex = 1;
+                } else {
+                  navigationIndex = 0;
+                }
+              });
+            },
           )),
           Expanded(
               child: Container(
@@ -167,6 +174,6 @@ class FavouritesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var appState = context.watch<NiceAppState>();
-    return const Placeholder();
+    return Column();
   }
 }
